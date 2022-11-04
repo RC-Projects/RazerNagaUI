@@ -1,8 +1,8 @@
-## Interface: 90002
+## Interface: 100000
 ## Title: Razer Naga
 ## Notes: A main actionbar replacement
 ## Author: Tuller
-## Version: 3.1.5
+## Version: 3.2.0
 ## SavedVariables: RazerNagaDB, RazerNagaVersion
 ## OptionalDeps: Ace3, LibKeyBound-1.0, Masque, FlyPaper
 embeds.xml
@@ -25,8 +25,8 @@ bindingsController.lua
 barStates.lua
 actionButton.lua
 actionBar.lua
-petBar.lua
-stanceBar.lua
+# petBar.lua
+# stanceBar.lua
 bagBar.lua
 menuBar.lua
 extraActionBar.lua

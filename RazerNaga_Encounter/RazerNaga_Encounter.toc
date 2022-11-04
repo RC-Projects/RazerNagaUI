@@ -1,7 +1,8 @@
-## Interface: 90002
+## Interface: 100000
 ## Title: Razer Naga Encounter
 ## Notes: Makes the PlayerPowerBarAlt movable
 ## Author: Tuller
 ## Dependencies: RazerNaga
+## DefaultState: disabled
 bar.lua
 controller.lua
