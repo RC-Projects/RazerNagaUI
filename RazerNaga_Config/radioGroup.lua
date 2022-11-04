@@ -48,12 +48,12 @@ RadioGroup.padH = 6
 RazerNaga.RadioGroup = RadioGroup
 
 function RadioGroup:New(title, parent)
-	local f = self:Bind(CreateFrame('Frame', parent:GetName() .. title, parent, 'OptionsBoxTemplate'))
+	local f = self:Bind(CreateFrame('Frame', parent:GetName() .. title, parent, 'TooltipBorderBackdropTemplate'))
 	f.buttons = {}
-
+	f.title = f:CreateFontString(f:GetName().."Title", "BACKGROUND", "GameFontHighlightSmall")
+	
 	f:SetBackdropBorderColor(0.4, 0.4, 0.4)
 	f:SetBackdropColor(0.15, 0.15, 0.15, 0.5)
-	_G[f:GetName() .. 'Title']:SetText(title)
 	
 	f:SetScript('OnShow', f.OnShow)
 	
