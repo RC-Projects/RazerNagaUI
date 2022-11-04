@@ -89,11 +89,11 @@ showMinimapButton:SetPoint('TOP', linkedOpacity, 'BOTTOM', -8, -10)
 --this option causes taint, but only for the session that the option is set in
 local lockButtons = GeneralOptions:NewCheckButton(L.LockActionButtons)
 lockButtons:SetScript('OnShow', function(self)
-	self:SetChecked(LOCK_ACTIONBAR == '1')
+--	self:SetChecked(LOCK_ACTIONBAR == '1')
 end)
-lockButtons:SetScript('OnClick', function(self, ...)
-	_G['InterfaceOptionsActionBarsPanelLockActionBars']:Click(...)
-end)
+--lockButtons:SetScript('OnClick', function(self, ...)
+--	_G['InterfaceOptionsActionBarsPanelLockActionBars']:Click(...)
+--end)
 lockButtons:SetPoint('TOP', showMinimapButton, 'BOTTOM', 0, -10)
 
 --show empty buttons
