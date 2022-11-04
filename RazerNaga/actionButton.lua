@@ -113,7 +113,7 @@ function ActionButton:Create(id)
 			hooksecurefunc(b, 'HideGrid', self.HideGrid)
 		end
 
-		b:Skin()
+		--b:Skin() -- disabled 10.0
 	end
 	return b
 end

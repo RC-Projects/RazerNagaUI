@@ -79,8 +79,8 @@ function ActionBar:New(id)
 	f:Layout()
 	f:UpdateGrid()
 	f:UpdateRightClickUnit()
-	f:SetScript('OnSizeChanged', self.OnSizeChanged)
-	f:UpdateFlyoutDirection()
+	--f:SetScript('OnSizeChanged', self.OnSizeChanged) -- disabled in 10.0
+	--f:UpdateFlyoutDirection() -- disabled in 10.0
 
 	active[id] = f
 
@@ -126,7 +126,7 @@ function ActionBar:LoadButtons()
 		local b = ActionButton:New(self.baseID + i)
 		if b then
 			b:SetParent(self.header)
-			b:SetFlyoutDirection(self:GetFlyoutDirection())
+			--b:SetFlyoutDirection(self:GetFlyoutDirection()) -- disabled in 10.0
 			self.buttons[i] = b
 		else
 			break
@@ -140,7 +140,7 @@ function ActionBar:AddButton(i)
 	if b then
 		self.buttons[i] = b
 		b:SetParent(self.header)
-		b:SetFlyoutDirection(self:GetFlyoutDirection())
+		--b:SetFlyoutDirection(self:GetFlyoutDirection()) -- disabled in 10.0
 		b:LoadAction()
 		self:UpdateAction(i)
 		self:UpdateGrid()

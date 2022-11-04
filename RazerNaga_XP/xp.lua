@@ -386,6 +386,20 @@ end
 
 --[[ Reputation ]]--
 
+local GetFriendshipReputation = GetFriendshipReputation
+if not GetFriendshipReputation then
+    GetFriendshipReputation = function()
+        return
+    end
+end
+
+local IsFactionParagon = C_Reputation and C_Reputation.IsFactionParagon
+if not IsFactionParagon then
+    IsFactionParagon = function()
+        return false
+    end
+end
+
 do
 	function XP:WatchReputation()
 		self:UnregisterAllEvents()
