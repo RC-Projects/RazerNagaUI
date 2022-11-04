@@ -37,13 +37,6 @@ function RazerNaga:OnInitialize()
 	--slash command support
 	self:RegisterSlashCommands()
 
-	--create a loader for the options menu
-	local f = CreateFrame('Frame', nil, InterfaceOptionsFrame)
-	f:SetScript('OnShow', function(self)
-		self:SetScript('OnShow', nil)
-		LoadAddOn('RazerNaga_Config')
-	end)
-
 	--keybound support
 	local kb = LibStub('LibKeyBound-1.0')
 	kb.RegisterCallback(self, 'LIBKEYBOUND_ENABLED')
@@ -660,8 +653,7 @@ function RazerNaga:ShowOptions()
 	end
 
 	if LoadAddOn('RazerNaga_Config') then
-		InterfaceOptionsFrame_Show()
-		InterfaceOptionsFrame_OpenToCategory(self.Options)
+		Settings.OpenToCategory('Razer Naga')
 		return true
 	end
 	return false
