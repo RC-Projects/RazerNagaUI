@@ -61,7 +61,7 @@ function SettingsLoader:LoadSettings(settings)
 
 	--reenable dominos
 	RazerNaga:Load()
-	--RazerNaga.AutoBinder:EnforceBindings()
+	RazerNaga.AutoBinder:EnforceBindings()
 
 	--hack, need to do a slightly more advanced layout method for the class bar to place it properly across all resolutions
 	-- local classBar = RazerNaga.Frame:Get('class')
