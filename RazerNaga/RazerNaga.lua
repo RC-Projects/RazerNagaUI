@@ -146,7 +146,7 @@ function RazerNaga:GetDefaults()
 
 			ab = {
 				count = 10,
-				showgrid = true,
+				showEmptyButtons = true,
 			},
 
 			frames = {},

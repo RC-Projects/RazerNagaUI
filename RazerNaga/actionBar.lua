@@ -98,12 +98,13 @@ function ActionBar:GetDefaults()
 	local defaults = {}
 	defaults.point = 'BOTTOM'
 	defaults.x = 0
-	defaults.y = 40*(self.id-1)
+	defaults.y = 14 + (ActionButton1:GetHeight() + 4) * (self.id - 1)
 	defaults.pages = {}
 	defaults.spacing = 4
 	defaults.padW = 2
 	defaults.padH = 2
 	defaults.numButtons = self:MaxLength()
+	defaults.showEmptyButtons = false
 
 	return defaults
 end
