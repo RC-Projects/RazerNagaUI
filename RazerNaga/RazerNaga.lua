@@ -273,7 +273,7 @@ function RazerNaga:Load()
 		end
 	end
 
-	self.Frame:ForAll('Reanchor')
+	self.Frame:ForEach('Reanchor')
 	self:UpdateMinimapButton()
 
 	--show auto binder dialog, if fist load of this profile
@@ -797,10 +797,10 @@ function RazerNaga:SetLock(enable)
 	self.locked = enable or false
 
 	if self:Locked() then
-		self.Frame:ForAll('Lock')
+		self.Frame:ForEach('Lock')
 		self:HideConfigHelper()
 	else
-		self.Frame:ForAll('Unlock')
+		self.Frame:ForEach('Unlock')
 		LibStub('LibKeyBound-1.0'):Deactivate()
 		self:ShowConfigHelper()
 	end
@@ -950,7 +950,7 @@ end
 function RazerNaga:SetShowGrid(enable)
 	self.db.profile.showgrid = enable or false
 
-	self.ActionBar:ForAll('UpdateGrid')
+	self.Frame:ForEach('UpdateGrid')
 end
 
 function RazerNaga:ShowGrid()
@@ -960,7 +960,7 @@ end
 --right click selfcast
 function RazerNaga:SetRightClickUnit(unit)
 	self.db.profile.ab.rightClickUnit = unit
-	self.ActionBar:ForAll('UpdateRightClickUnit')
+	self.Frame:ForEach('UpdateRightClickUnit')
 end
 
 function RazerNaga:GetRightClickUnit()
@@ -1024,7 +1024,7 @@ function RazerNaga:SetNumBars(count)
 	count = max(min(count, 120), 1) --sometimes, I do entertaininig things
 
 	if count ~= self:NumBars() then
-		self.ActionBar:ForAll('Delete')
+		self.Frame:ForEach('Delete')
 		self.db.profile.ab.count = count
 
 		for i = 1, self:NumBars() do
@@ -1092,8 +1092,8 @@ end
 function RazerNaga:SetSticky(enable)
 	self.db.profile.sticky = enable or false
 	if not enable then
-		self.Frame:ForAll('Stick')
-		self.Frame:ForAll('Reposition')
+		self.Frame:ForEach('Stick')
+		self.Frame:ForEach('Reposition')
 	end
 end
 
@@ -1104,8 +1104,8 @@ end
 --linked opacity
 function RazerNaga:SetLinkedOpacity(enable)
 	self.db.profile.linkedOpacity = enable or false
-	self.Frame:ForAll('UpdateWatched')
-	self.Frame:ForAll('UpdateAlpha')
+	self.Frame:ForEach('UpdateWatched')
+	self.Frame:ForEach('UpdateAlpha')
 end
 
 function RazerNaga:IsLinkedOpacityEnabled()

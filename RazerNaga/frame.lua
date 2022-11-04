@@ -995,31 +995,59 @@ end
 --[[ Metafunctions ]]--
 
 function Frame:Get(id)
-	return active[tonumber(id) or id]
+    return active[tonumber(id) or id]
 end
 
 function Frame:GetAll()
-	return pairs(active)
+    return pairs(active)
 end
 
-function Frame:ForAll(method, ...)
-	for _,f in self:GetAll() do
-		local action = f[method]
-		if action then
-			action(f, ...)
-		end
-	end
+function Frame:CallMethod(method, ...)
+    local func = self[method]
+
+    if type(func) == 'function' then
+        return func(self, ...)
+    else
+        error(('Frame %s does not have a method named %q'):format(self.id, method), 2)
+    end
 end
 
-function Frame:ForDocked(method, ...)
-	if self.docked then
-		for _, f in pairs(self.docked) do
-			local action = f[method]
-			if action then
-				action(f, ...)
-			end
-		end
-	end
+function Frame:MaybeCallMethod(method, ...)
+    local func = self[method]
+
+    if type(func) == 'function' then
+        return func(self, ...)
+    end
+end
+
+function Frame:ForEach(method, ...)
+    for _, frame in self:GetAll() do
+        frame:MaybeCallMethod(method, ...)
+    end
+end
+
+function Frame:All(method, ...)
+    for _, frame in self:GetAll() do
+        local func = self[method]
+
+        if type(func) == 'function' and not func(frame, ...) then
+            return false
+        end
+    end
+
+    return true
+end
+
+function Frame:Any(method, ...)
+    for _, frame in self:GetAll() do
+        local func = self[method]
+
+        if type(func) == 'function' and func(frame, ...) then
+            return true
+        end
+    end
+
+    return false
 end
 
 --takes a frameId, and performs the specified action on that frame
