@@ -49,5 +49,5 @@ adjustments.
 
 ## Contributing
 
-[Source code for the addon can be found on GitHub](https://github.com/Daenarys/RazerNaga)
+[Source code for the addon can be found on GitHub](https://github.com/Daenarys/RazerNagaUI)
 
